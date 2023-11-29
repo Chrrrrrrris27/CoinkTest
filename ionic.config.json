@@ -1,0 +1,7 @@
+{
+  "name": "CoinkTest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
