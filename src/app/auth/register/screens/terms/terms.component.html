@@ -1,0 +1,50 @@
+<ion-content>
+  <ion-grid class="wrapper">
+    <ion-row>
+      <app-register-header
+        img="assets/imgs/logo/OinkPolicia.svg"
+        title="ESTAS MUY CERCA DE SER PARTE DE COINK"
+        subtitle="Solo es necesario que leas detenidamente el contrato que se encuentra al final de esta pantalla y lo aceptes."
+      >
+      </app-register-header>
+    </ion-row>
+    <ion-row class="terms_info-container">
+      <ion-text class="global-font">
+        <h6>LO MÁS IMPORTANTE</h6>
+      </ion-text>
+      <ion-text color="tertiary" class="global-font">
+        <p>Para la apertura del Depósito de Bajo Monto en COINK debes ser una persona natural que de acuerdo con nuestra legislación vigente te encuentres en plena capacidad para adquirir derechos y contraer obligaciones.</p>
+        <p>Abrirás una cuenta COINK de Bajo Monto la cual te permitirá tener un saldo hasta por 8 salarios mínimos en el mes y realizar débitos por el mismo valor. Si deseas sobrepasar estos límites debes solicitarnos la apertura de un Depósito Ordinario COINK Persona Natural.</p>
+        <p>Solo puedes tener una cuenta COINK de Bajo Monto y podrás utilizar tu dispositivo móvil para consultar tu saldo, tus movimientos, realizar tus transacciones y administrar tu cuenta. Recuerda que no necesitas saldo mínimo ni monto inicial para su apertura.</p>
+      </ion-text>
+    </ion-row>
+
+    <!-- Terms Check Form -->
+    <ion-row>
+      <div class="terms_form-container">
+        <ion-text class="global-font">
+          <h6>Lee tu contrato</h6>
+        </ion-text>
+        <form [formGroup]="termsForm" (ngSubmit)="save()">
+          <ion-checkbox
+            formControlName="conditions"
+            class="global-font"
+            labelPlacement="end"
+          >He leído y acepto el contrato</ion-checkbox>
+          <div class="form_submit-container">
+            <!-- Submit Button -->
+            <ion-button 
+              type="submit"
+              shape="round"
+              expand="block"
+              class="global-font"
+              [disabled]="termsForm.invalid"
+            >
+                ACEPTAR
+            </ion-button>
+          </div>
+        </form>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

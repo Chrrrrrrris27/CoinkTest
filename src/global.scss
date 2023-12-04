@@ -24,3 +24,102 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+// Montserrat font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+html {
+  font-family: "Montserrat";
+}
+
+// Reset styles
+
+input {
+  background-color: var(--ion-item-background);
+  outline: none;
+  border: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+  padding: 0;
+}
+
+
+// Global styles
+
+ion-title {
+  &.title-medium {
+    font-size: 16px;
+  }
+}
+
+ion-icon {
+  &.icon-medium {
+    font-size: 18px;
+  }
+}
+
+ion-input {
+
+  &.input-label-placement-floating.has-focus,
+  &.input-label-placement-floating.has-value {
+    label {
+      gap: 8px;
+    }
+  }
+  .label-text {
+    color: var(--ion-color-light);
+  }
+}
+
+ion-popover {
+
+  --ion-text-color : #212121;
+  --ion-backdrop-color: transparent;
+  --box-shadow: 0 3px 6px #00000029;
+
+  ion-item {
+    --ion-item-border-color: #EEEEEE;
+    --background-focused: transparent;
+    --padding-start: 0;
+    --inner-padding-start: 24px;
+  }
+
+  &::part(arrow) {
+    display: none;
+  }
+
+  ion-select-popover {
+    box-shadow: 0 3px 6px #00000029;
+  }
+}
+
+
+.global-font {
+  font-family: "Montserrat";
+}
+
+.wrapper {
+  --ion-grid-padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 640px;
+}
+
+.form_submit-container {
+  margin: 74px 0 40px;
+}
+
+.font-small {
+  font-size: 12px;
+}
+
+.error-text {
+  margin-top: 8px;
+}

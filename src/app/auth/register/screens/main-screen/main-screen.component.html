@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <div class="toolbar_back-button_container">
+    </div> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button fill="clear" size="large" routerLink="/">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ion-button>
+          <ion-title color="secondary" size="medium">
+            {{getMainTitle()}}
+          </ion-title>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center"> 
+        <ul class="header_navigation">
+          <li class="header_navigation_item" *ngFor="let link of headerLinks">
+            <ng-container *ngIf="!isActiveStep(link.step); else linkActive">
+              <ion-icon name="radio-button-off-outline" color="light" size="medium"></ion-icon>
+            </ng-container>
+          </li>
+        </ul>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Icon Active Page -->
+<ng-template #linkActive>
+  <ion-icon name="radio-button-on-outline" color="primary" size="medium"></ion-icon>
+</ng-template>
+
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>
+

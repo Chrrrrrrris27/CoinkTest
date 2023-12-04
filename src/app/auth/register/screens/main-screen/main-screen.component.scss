@@ -1,0 +1,32 @@
+ion-header {
+  box-shadow: 0 5px 10px #0000001A;
+}
+.header_navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 188px;
+}
+ion-button {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  min-height: auto;
+}
+
+.header_navigation_item:not(:last-child) {
+  position: relative;
+  &::after{
+    content: "";
+    display: inline-block;
+    width: 56px;
+    height: 2px;
+    background-color: var(--ion-color-light);
+    position: absolute;
+    top: 9px;
+    left: 22px;
+  }
+}

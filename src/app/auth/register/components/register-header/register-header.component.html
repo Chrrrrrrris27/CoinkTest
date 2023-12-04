@@ -1,0 +1,17 @@
+<ion-grid>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="3" *ngIf="img.length > 0">
+      <ion-thumbnail>
+        <img [src]="img" alt="Oink">
+      </ion-thumbnail>
+    </ion-col>
+    <ion-col size="9" *ngIf="title.length > 0 || subtitle.length > 0">
+      <ion-text color="secondary" class="global-font" *ngIf="title.length > 0">
+        <h6 class="register-header_title" [innerHTML]="title"></h6>
+      </ion-text>
+      <ion-text color="medium" class="global-font" *ngIf="subtitle.length > 0">
+        <h6 [innerHTML]="subtitle"></h6>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>

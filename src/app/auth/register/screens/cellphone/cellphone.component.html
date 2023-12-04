@@ -1,0 +1,48 @@
+<ion-content>
+  <ion-grid class="wrapper">
+    <ion-row>
+      <app-register-header
+        img="assets/imgs/logo/Oink.svg"
+        subtitle="Para comenzar, por favor ingresa <strong>tu número celular.</strong>"
+      ></app-register-header>
+    </ion-row>
+    <ion-row class="cellphone_form-container">
+      <ion-col>
+        <form [formGroup]="telForm" (ngSubmit)="saveNumber()">
+
+          <!-- Telephone number input -->
+          <div>
+            <div class="cellphone_input_container">
+              <input
+                type="number"
+                placeholder="(XXX - XXXXXXX)"
+                formControlName="tel"
+              />
+              <span class="cellphone_value">
+                {{telForm.controls.tel.value | tel}}
+              </span>
+            </div>
+            <ion-text class="global-font" color="danger" *ngIf="isLongerNumber()">
+              <div class="error-text">
+                <small>
+                  El número debe ser de 10 digitos
+                </small>
+              </div>
+            </ion-text>
+          </div>
+
+          <!-- Submit Button -->
+          <ion-button 
+            type="submit"
+            shape="round"
+            expand="block"
+            class="global-font"
+            [disabled]="telForm.invalid"
+          >
+              SIGUIENTE
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

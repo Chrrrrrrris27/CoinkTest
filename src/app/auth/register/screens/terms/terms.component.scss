@@ -1,0 +1,32 @@
+ion-checkbox {
+
+  --checkmark-color: #fff;
+
+  &::part(container) {
+    border-radius: 6px;
+    border: 2px solid var(--ion-color-primary);
+    height: 16px;
+    width: 16px;
+  }
+}
+
+h6 {
+  font-weight: 700;
+}
+
+p {
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.terms_info-container {
+  margin-top: 16px;
+}
+
+.terms_form-container {
+  width: 100%;
+
+  h6 {
+    text-decoration: underline;
+  }
+}

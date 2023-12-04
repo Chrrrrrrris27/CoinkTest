@@ -10,7 +10,7 @@ export class HomeComponent {
 
   constructor(
     private router: Router
-  ) { }
+  ) {}
 
   register() {
     this.router.navigate(['register']);

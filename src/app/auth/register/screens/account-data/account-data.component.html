@@ -1,0 +1,133 @@
+<ion-content>
+  <ion-grid class="wrapper">
+    <ion-row>
+      <app-register-header
+        img="assets/imgs/logo/Oink-M.svg"
+        title="¿CUÁLES SON TUS DATOS?"
+        subtitle="Ahora necesitamos saber algunos datos tuyos"
+      >
+      </app-register-header>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="accountForm" (ngSubmit)="save()">
+          <!-- ID Group -->
+          <div>
+            <ion-text color="secondary" class="global-font">
+              <h6>Documento de identidad</h6>
+            </ion-text>
+            <div class="form_group">
+
+              <!-- Document type -->
+              <ion-select 
+                interface="popover"
+                label="Tipo de documento"
+                label-placement="floating"
+                toggleIcon="caret-down-sharp"
+                class="icon-flip global-font"
+                formControlName="documentType"
+                arrow="false"
+              >
+                <ion-select-option value="apples">Tarjeta de identidad</ion-select-option>
+                <ion-select-option value="oranges">Cédula de ciudadanía</ion-select-option>
+                <ion-select-option value="bananas">Cédula de extranjería</ion-select-option>
+              </ion-select>
+
+              <!-- Document Number -->
+              <ion-input
+                label="Número de documento"
+                labelPlacement="floating"
+                type="number"
+                formControlName="documentNumber"
+              ></ion-input>
+
+              <!-- Expedition Date -->
+              <ion-input
+                label="Fecha de expedición del documento"
+                labelPlacement="floating"
+                type="date"
+                formControlName="expirationDate"
+              ></ion-input>
+
+              <!-- Birth Date -->
+              <ion-input
+                label="Fecha de nacimiento"
+                labelPlacement="floating"
+                type="date"
+                formControlName="birthDate"
+              ></ion-input>
+
+              <!-- Gender -->
+              <ion-select 
+                interface="popover"
+                label="Género"
+                label-placement="floating"
+                toggleIcon="caret-down-sharp"
+                class="icon-flip global-font"
+                formControlName="gender"
+                arrow="false"
+              >
+                <ion-select-option value="apples">Masculino</ion-select-option>
+                <ion-select-option value="oranges">Femenino</ion-select-option>
+              </ion-select>
+            </div>
+          </div>
+
+          <!-- Account Config -->
+          <div>
+            <ion-text color="secondary" class="global-font">
+              <h6>Configura tu cuenta</h6>
+            </ion-text>
+            <div>
+
+              <!-- Email -->
+              <ion-input
+                label="Correo electrónico"
+                labelPlacement="floating"
+                type="email"
+                formControlName="email"
+              ></ion-input>
+
+              <!-- Confirm Email -->
+              <ion-input
+                label="Confirmar correo electrónico"
+                labelPlacement="floating"
+                type="email"
+                formControlName="confirmEmail"
+              ></ion-input>
+
+              <!-- PIN -->
+              <ion-input
+                label="PIN de seguridad"
+                labelPlacement="floating"
+                type="password"
+                formControlName="securityPin"
+              ></ion-input>
+
+              <!-- Confirm PIN -->
+              <ion-input
+                label="Confirmar PIN de seguridad"
+                labelPlacement="floating"
+                type="password"
+                formControlName="confirmSecurityPin"
+              ></ion-input>
+            </div>
+          </div>
+          
+          <div class="form_submit-container">
+            <!-- Submit Button -->
+            <ion-button 
+              type="submit"
+              shape="round"
+              expand="block"
+              class="global-font"
+              [disabled]="accountForm.invalid"
+            >
+                SIGUIENTE
+            </ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

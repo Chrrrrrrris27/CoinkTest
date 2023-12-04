@@ -1,0 +1,55 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 26px;
+  height: 100%;
+
+  input {
+    border-radius: 4px;
+    box-shadow: 0px 5px 5px var(--ion-color-light-shade);
+    font-size: 24px;
+    color: transparent;
+    padding: 14px 41px;
+    width: 100%;
+
+    &::placeholder {
+      color: var(--ion-color-light);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+  }
+}
+
+ion-button {
+  font-weight: 700;
+}
+
+.cellphone_label {
+  border-bottom: 1px solid var(--ion-color-primary);
+  flex: 0 0 20%;
+  padding: 32px 0 16px;
+}
+
+.cellphone_form-container {
+  flex: 0 0 80%;
+}
+
+.cellphone_input_container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.cellphone_value {
+  color: var(--ion-color-tertiary);
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
