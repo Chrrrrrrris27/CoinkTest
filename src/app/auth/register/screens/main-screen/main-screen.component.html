@@ -1,17 +1,13 @@
-<ion-header>
+<ion-header *ngIf="showHeader()">
   <ion-toolbar>
-    <!-- <div class="toolbar_back-button_container">
-    </div> -->
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <ion-button fill="clear" size="large" routerLink="/">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </ion-button>
-          <ion-title color="secondary" size="medium">
-            {{getMainTitle()}}
-          </ion-title>
-        </ion-col>
+        <ion-button class="back_button" fill="clear" size="large" routerLink="/home">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+        <ion-text color="secondary">
+          <h6>{{getMainTitle()}}</h6>
+        </ion-text>
       </ion-row>
       <ion-row class="ion-justify-content-center"> 
         <ul class="header_navigation">

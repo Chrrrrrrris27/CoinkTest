@@ -15,12 +15,13 @@
             <div class="cellphone_input_container">
               <input
                 type="number"
-                placeholder="(XXX - XXXXXXX)"
                 formControlName="tel"
               />
-              <span class="cellphone_value">
-                {{telForm.controls.tel.value | tel}}
-              </span>
+              <div class="cellphone_value" [ngClass]="telForm.controls.tel.value && telForm.controls.tel.value !== '' ? 'has-value' : ''">
+                <span>
+                  {{telForm.controls.tel.value | tel}}
+                </span>
+              </div>
             </div>
             <ion-text class="global-font" color="danger" *ngIf="isLongerNumber()">
               <div class="error-text">
@@ -36,7 +37,7 @@
             type="submit"
             shape="round"
             expand="block"
-            class="global-font"
+            class="global-font button_action"
             [disabled]="telForm.invalid"
           >
               SIGUIENTE

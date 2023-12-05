@@ -28,9 +28,7 @@
                 formControlName="documentType"
                 arrow="false"
               >
-                <ion-select-option value="apples">Tarjeta de identidad</ion-select-option>
-                <ion-select-option value="oranges">Cédula de ciudadanía</ion-select-option>
-                <ion-select-option value="bananas">Cédula de extranjería</ion-select-option>
+                <ion-select-option *ngFor="let document of documentTypes" [value]="document.id">{{document.description}}</ion-select-option>
               </ion-select>
 
               <!-- Document Number -->
@@ -47,7 +45,15 @@
                 labelPlacement="floating"
                 type="date"
                 formControlName="expirationDate"
+                [ngClass]="isInvalidField('expirationDate') && 'has-error' || ''"
               ></ion-input>
+              <ion-text class="global-font" color="danger" *ngIf="isInvalidField('expirationDate')">
+                <div class="error-text">
+                  <small>
+                    La fecha debe ser menor a la fecha actual
+                  </small>
+                </div>
+              </ion-text>
 
               <!-- Birth Date -->
               <ion-input
@@ -55,7 +61,15 @@
                 labelPlacement="floating"
                 type="date"
                 formControlName="birthDate"
+                [ngClass]="isInvalidField('birthDate') && 'has-error' || ''"
               ></ion-input>
+              <ion-text class="global-font" color="danger" *ngIf="isInvalidField('birthDate')">
+                <div class="error-text">
+                  <small>
+                    La fecha ingresada no cumple con la edad mínima
+                  </small>
+                </div>
+              </ion-text>
 
               <!-- Gender -->
               <ion-select 
@@ -67,8 +81,7 @@
                 formControlName="gender"
                 arrow="false"
               >
-                <ion-select-option value="apples">Masculino</ion-select-option>
-                <ion-select-option value="oranges">Femenino</ion-select-option>
+                <ion-select-option *ngFor="let gender of genders" [value]="gender.id">{{gender.name}}</ion-select-option>
               </ion-select>
             </div>
           </div>
@@ -86,31 +99,70 @@
                 labelPlacement="floating"
                 type="email"
                 formControlName="email"
+                [ngClass]="isInvalidField('email') && 'has-error' || ''"
               ></ion-input>
+              <ion-text class="global-font" color="danger" *ngIf="isInvalidField('email')">
+                <div class="error-text">
+                  <small>
+                    El correo electrónico no es válido
+                  </small>
+                </div>
+              </ion-text>
 
               <!-- Confirm Email -->
-              <ion-input
-                label="Confirmar correo electrónico"
-                labelPlacement="floating"
-                type="email"
-                formControlName="confirmEmail"
-              ></ion-input>
+              <div class="input_group">
+                <ion-input
+                  label="Confirmar correo electrónico"
+                  labelPlacement="floating"
+                  type="email"
+                  formControlName="confirmEmail"
+                  [ngClass]="isInvalidField('confirmEmail') && 'has-error' || ''"
+                ></ion-input>
+                <ion-text class="global-font" color="danger" *ngIf="isInvalidField('confirmEmail')">
+                  <div class="error-text">
+                    <small>
+                      Este campo no coincide con el correo electrónico
+                    </small>
+                  </div>
+                </ion-text>
+                <ion-button *ngIf="!isInvalidField('confirmEmail') && accountForm.controls.confirmEmail.touched && accountForm.controls.confirmEmail.value !== ''" class="icon_input_group" fill="clear" shape="round">
+                  <ion-icon name="checkmark-outline" color="primary"></ion-icon>
+                </ion-button>
+              </div>
 
               <!-- PIN -->
-              <ion-input
-                label="PIN de seguridad"
-                labelPlacement="floating"
-                type="password"
-                formControlName="securityPin"
-              ></ion-input>
+              <div class="input_group">
+                <ion-input
+                  label="PIN de seguridad"
+                  labelPlacement="floating"
+                  [type]="securityPinType"
+                  formControlName="securityPin"
+                ></ion-input>
+                <ion-button class="icon_input_group" fill="clear" shape="round" size="default" (click)="showSecurityPin()">
+                  <ion-icon [name]="!showPin ?  'eye' : 'eye-off'" color="tertiary"></ion-icon>
+                </ion-button>
+              </div>
 
               <!-- Confirm PIN -->
-              <ion-input
-                label="Confirmar PIN de seguridad"
-                labelPlacement="floating"
-                type="password"
-                formControlName="confirmSecurityPin"
-              ></ion-input>
+              <div class="input_group">
+                <ion-input
+                  label="Confirmar PIN de seguridad"
+                  labelPlacement="floating"
+                  [type]="securityConfirmPinType"
+                  formControlName="confirmSecurityPin"
+                  [ngClass]="isInvalidField('confirmSecurityPin') && 'has-error' || ''"
+                ></ion-input>
+                <ion-text class="global-font" color="danger" *ngIf="isInvalidField('confirmSecurityPin')">
+                  <div class="error-text">
+                    <small>
+                      Este campo no coincide con el PIN
+                    </small>
+                  </div>
+                </ion-text>
+                <ion-button class="icon_input_group" fill="clear" shape="round" size="default" (click)="showConfirmSecurityPin()">
+                  <ion-icon [name]="!showConfirmPin ? 'eye' : 'eye-off'" color="tertiary"></ion-icon>
+                </ion-button>
+              </div>
             </div>
           </div>
           
@@ -120,7 +172,7 @@
               type="submit"
               shape="round"
               expand="block"
-              class="global-font"
+              class="global-font button_action"
               [disabled]="accountForm.invalid"
             >
                 SIGUIENTE
@@ -131,3 +183,5 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<app-loader [isLoading]="documentTypes.length === 0 && genders.length === 0 "></app-loader>

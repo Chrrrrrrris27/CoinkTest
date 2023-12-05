@@ -10,6 +10,7 @@ import { TelPipe } from '../../shared/pipes/tel.pipe';
 import { AccountDataComponent } from './screens/account-data/account-data.component';
 import { RegisterHeaderComponent } from './components/register-header/register-header.component';
 import { TermsComponent } from './screens/terms/terms.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TermsComponent } from './screens/terms/terms.component';
     CommonModule,
     RegisterRoutingModule,
     IonicModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class RegisterModule { }

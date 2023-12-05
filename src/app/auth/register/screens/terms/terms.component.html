@@ -9,7 +9,7 @@
       </app-register-header>
     </ion-row>
     <ion-row class="terms_info-container">
-      <ion-text class="global-font">
+      <ion-text class="global-font" color="secondary">
         <h6>LO MÁS IMPORTANTE</h6>
       </ion-text>
       <ion-text color="tertiary" class="global-font">
@@ -22,7 +22,7 @@
     <!-- Terms Check Form -->
     <ion-row>
       <div class="terms_form-container">
-        <ion-text class="global-font">
+        <ion-text class="global-font" color="secondary">
           <h6>Lee tu contrato</h6>
         </ion-text>
         <form [formGroup]="termsForm" (ngSubmit)="save()">
@@ -37,7 +37,7 @@
               type="submit"
               shape="round"
               expand="block"
-              class="global-font"
+              class="global-font button_action"
               [disabled]="termsForm.invalid"
             >
                 ACEPTAR

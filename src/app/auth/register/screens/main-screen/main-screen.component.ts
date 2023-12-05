@@ -49,4 +49,8 @@ export class MainScreenComponent implements AfterViewChecked {
     return false;
   }
 
+  showHeader(): boolean {
+    return this.activeLink ? true : false;
+  }
+
 }

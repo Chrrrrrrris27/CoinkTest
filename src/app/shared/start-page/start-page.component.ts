@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-page',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartPageComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Simulate Calls API - etc
+    setTimeout(() => this.goHome(), 1500);
+  }
+
+  goHome() {
+    this.router.navigate(["home"])
+  }
 
 }

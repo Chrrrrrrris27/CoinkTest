@@ -1,0 +1,12 @@
+// Intro Screen
+.intro-container {
+  background-color: var(--ion-color-primary);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ion-thumbnail {
+  height: 192px;
+  width: 156px;
+}

@@ -75,6 +75,15 @@ ion-input {
   .label-text {
     color: var(--ion-color-light);
   }
+
+  // states
+  &.has-error {
+    border-bottom: 1px solid var(--ion-color-danger) !important;
+
+    .label-text {
+      color: var(--ion-color-danger);
+    }
+  }
 }
 
 ion-popover {
@@ -96,6 +105,12 @@ ion-popover {
 
   ion-select-popover {
     box-shadow: 0 3px 6px #00000029;
+  }
+}
+
+ion-button {
+  &::part(native){
+    box-shadow: none;
   }
 }
 
@@ -122,4 +137,29 @@ ion-popover {
 
 .error-text {
   margin-top: 8px;
+}
+
+.form_group {
+  margin-top: 16px;
+}
+
+.input_group {
+  position: relative;
+  .icon_input_group {
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    z-index: 2;
+    min-height: auto;
+
+    &::part(native) {
+      padding: 0 12px;
+    }
+  }
+}
+
+.button_action {
+  min-height: 50px;
 }

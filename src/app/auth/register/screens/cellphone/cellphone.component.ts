@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { Payload } from 'src/app/payload';
+import { Payload } from 'src/app/shared/crypto_data/payload';
+import { StorageService } from 'src/app/shared/services/storage-service.service';
 import { ValidatorService } from 'src/app/shared/validators/validators.service';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-cellphone',
@@ -21,7 +23,9 @@ export class CellphoneComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private validatorService: ValidatorService
+    private validatorService: ValidatorService,
+    private storageService: StorageService,
+    private registerService: RegisterService
     ) { }
     
   isLongerNumber() {
@@ -35,14 +39,15 @@ export class CellphoneComponent {
 
 
   saveNumber() {
-  // const payloadInstance = new Payload(this.telForm.value);
-  // console.log(this.telForm.value)
-  // console.log(payloadInstance.toJSON())
-  // const result = payloadInstance.toJSON()
 
-  // console.log(Payload.decrypt(result.payload))
-  
-  // this.router.navigate(["/register/userdata"])
-}
+    const localAccountInfo = this.registerService.getLocalAccountInfo("userdata", this.telForm);
+
+    this.storageService.setLocalStorage(
+      "account_info",
+      localAccountInfo
+    )
+    
+    this.router.navigate(["/register/userdata"])
+  }
 
 }

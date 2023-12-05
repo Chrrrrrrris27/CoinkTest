@@ -1,0 +1,30 @@
+ion-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 24px 24px;
+  width: 270px;
+  text-align: center;
+  margin: 0;
+}
+ion-thumbnail {
+  height: 80px;
+  width: 101px;
+}
+ion-card-title {
+  font-size: 20px;
+}
+ion-content {
+  --ion-card-color: var(--ion-color-tertiary);
+}
+ion-button {
+  font-weight: 700;
+  width: 100%;
+}
+.welcome-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
